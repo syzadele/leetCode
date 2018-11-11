@@ -1,0 +1,55 @@
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        /*int index = 0;
+        int loopIndex = 0;
+        List<Integer> result = new ArrayList<Integer>();
+        
+        while (index < nums.length) {
+            
+            if(nums[index] != 0){
+                if(nums[index] != index + 1){
+                    result.add(index + 1);
+                    /*System.out.println("Add "+(index+1));
+                }
+                loopIndex = nums[index] - 1;
+                System.out.println("Index: "+index+" loopIndex: "+loopIndex);
+                
+                while (nums[loopIndex] != 0) {
+            
+                    int temp = nums[loopIndex];
+                    System.out.println("Temp: "+temp+" "+"loopIndex: "+loopIndex);
+                    
+                    nums[loopIndex] = 0;
+                    if(result.contains(loopIndex + 1)){
+                        result.remove(result.indexOf(loopIndex + 1));
+                        System.out.println("remove "+ (loopIndex+1));
+                    }
+                    loopIndex = temp - 1;
+                }
+            }
+            index++;
+        }*/
+        List<Integer> result = new ArrayList<Integer>();
+        if (nums.length > 1) {
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != (i+1)) {
+                    if(!result.contains(i+1)){
+                        result.add(i+1);
+                    } else {
+                        result.remove(result.indexOf(i+1));
+                    }
+                    
+                    if (nums[i] > (i+1) && (!result.contains(nums[i]))) {
+                        result.add(nums[i]);
+                    } 
+                    if (nums[i] < (i+1) && result.contains(nums[i])) {
+                        result.remove(result.indexOf(nums[i]));
+                    }
+                } else if (result.contains(i+1)) {
+                    result.remove(result.indexOf(i+1));
+                } 
+            }
+        }
+        return result;
+    }
+}
