@@ -1,0 +1,50 @@
+class Solution {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        boolean result = true;
+        int matrixLength = matrix.length;
+        int arrLength = matrix[0].length;
+        int start, index, jdex;
+        int i = 1;
+      
+       while(i < arrLength) {
+            index = i;
+            jdex = matrixLength - 1;
+            start = matrix[matrixLength - 1][i];
+            /*System.out.println(start);*/
+                
+            while ((index > 0) && (jdex > 0)) {
+                if(matrix[jdex - 1][index - 1] != start){
+                    result = false;
+                    return result;
+                }else{
+                    start = matrix[jdex - 1][index - 1];
+                    jdex --;
+                    index--;
+                }
+            } 
+           i++;
+        }
+        
+        i = matrixLength - 2;
+        while(i > 0){
+            index = arrLength - 1;
+            jdex = i;
+            start = matrix[jdex][index];
+            /*System.out.println("new " + start);*/
+
+            while ((index > 0) && (jdex > 0)) {
+                if(matrix[jdex - 1][index - 1] != start){
+                    result = false;
+                    return result;
+                } else {
+                    start = matrix[jdex - 1][index - 1];
+                    jdex --;
+                    index --;
+                }
+            } 
+            i--;
+        }
+        
+        return result;
+    }
+}
