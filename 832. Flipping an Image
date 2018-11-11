@@ -1,0 +1,25 @@
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        for(int[] objet : A){
+            int indexBack = objet.length - 1;
+            int limit = (int)Math.floor(objet.length / 2);
+            if(objet.length == 1){
+                objet[0] = 1 - objet[0];
+            }else{
+                if(objet.length % 2 == 1){
+                objet[limit] = objet[limit] ^ 1;
+                }    
+                for(int i = 0; i < limit; i++){
+                   if(objet[i] == objet[indexBack]){
+                       objet[i] = objet[i] ^ 1;
+                       objet[indexBack] = objet[indexBack] ^ 1;
+                   }
+                    indexBack--;
+                }
+            }
+        
+            
+        }
+    return A;
+    }
+}
