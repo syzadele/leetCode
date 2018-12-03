@@ -1,2 +1,2 @@
 # leetCode
-theme: hello
+title: LeetCode exercices
