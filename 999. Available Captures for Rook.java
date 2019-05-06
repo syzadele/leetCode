@@ -7,18 +7,20 @@ class Solution {
                 if (board[i][j] == 'R') {
                     axeX = j;
                     axeY = i;
+                    break;
                 }
             }
         }
-        int i = axeY - 1;
+        int i = axeY;
         int j = axeX;
         int result = 0;
         while (board[i][j] != 'B' && i > 0) {
+            i--;
             if (board[i][j] == 'p') {
                 result ++;
                 break;
             }
-            i--;
+           
         }
         i = axeY;
         while (board[i][j] != 'B' && i < 7) {
@@ -29,13 +31,13 @@ class Solution {
             }
         }
         i = axeY;
-        j = axeX - 1;
+        j = axeX;
        while (board[i][j] != 'B' && j > 0) {
+           j--;
             if (board[i][j] == 'p') {
                 result ++;
                 break;
             }
-            j--;
         }
         j = axeX;
         while (board[i][j] != 'B' && j < 7) {
